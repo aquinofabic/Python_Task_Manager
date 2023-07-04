@@ -17,8 +17,45 @@ MDFloatLayout:
 
     MDFloatingActionButton:
         icon: "plus-thick"
-        # on_release:
+        on_release: app.show_task_dialog()
         elevation_normal: 12
         pos_hint: {"x": 0.45, "y": 0.04}
 
-        
+# DialogContent class
+<DialogContent>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint: 1, None  # width and height
+    height: "130dp"
+
+    GridLayout:
+        rows: 1
+
+        MDTextField:
+            id: task_text
+            hint_text: "Add Task..."
+            pos_hint: {"center_y": 0.4}
+            max_text_length: 50
+            # add task onto main task:
+            on_text_validate: (app.add_task(task_text, date_text.text), app.close_dialog())
+
+        MDIconButton:
+            icon: "calendar"
+            on_release: root.show_date_picker()  # root calls the show_date_picker function in main_TM
+            padding: "10dp"
+
+    MDLabel:
+        spacing: "10dp"
+        id: date_text
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        # Button to save which will be raised
+        MDRaisedButton:
+            text: "SAVE"
+            on_release: (app.add_task(task_text, date_text.text), app.close_dialog())
+
+        MDFlatButton:
+            text: "CANCEL"
+            on_release: app.close_dialog()
