@@ -17,6 +17,8 @@ print("this dog is a" ,tomita.breed, "and eyes are", tomita.EyeColour)
 
 super() is an example of class inheritence.
 
+markup modules provides unified interface for 
+
 
 
 KIVY
@@ -24,5 +26,7 @@ kivy's .bind(current = a_function(arg1, arg2)) method, when current property cha
 it will call a_function with arguments arg1, arg2
 
 root function allows 
+
+parent is a kivy property
 """""
 
