@@ -35,7 +35,8 @@ Note: args is just a name and * is the unpacking operator.
 You are able to replace *args with, for example, *integers.
 
 Note: the iterable object you'll get using the unpacking operator (*) is not a list, but a tuple! (lists [] are mutable, tuples () are not)
-(**) can pass keyword arguments and returns both the key:value
+(**) can pass keyword arguments and returns both the keys and values.
+.key() returns only key, .values() returns only value, .items() returns key:value
 
 ___________________________________________________________________________________________
 
